@@ -58,11 +58,44 @@ git clone https://github.com/aninstone/modbus-rtu-skill.git
 
 将 `assets/` 文件夹中的文件复制到你的 Qt 项目中即可。
 
+## ⚠️ 重要：安装 Qt SerialPort 库
+
+**首次使用前必须安装**，否则编译会报错！
+
+### 方法一：Qt Maintenance Tool（推荐）
+
+1. 打开 **Qt Maintenance Tool**
+   - 位置：`C:/Qt/MaintenanceTool.exe`
+
+2. 点击 **添加或移除组件**
+
+3. 展开 **Qt 6.x.x** → **库**
+
+4. ✅ 勾选 **Qt Serial Port**
+
+5. 点击 **下一步** 完成安装
+
+### 方法二：命令行安装
+
+```bash
+pip install aqtinstall
+aqt install-qt windows desktop 6.5.3 win64_msvc2019_64 -O Qt6
+```
+
+### 验证安装成功
+
+编译时无 "QSerialPort: No such file" 错误即成功。
+
+---
+
 ## 在 Qt Creator 中运行
 
 1. 打开 `ModbusRTUMaster.pro`
-2. 构建 → 重新构建所有
-3. 运行
+2. 如有错误先安装 SerialPort（如上）
+3. 构建 → 重新构建所有
+4. 运行 ▶️
+
+---
 
 ## 界面预览
 
