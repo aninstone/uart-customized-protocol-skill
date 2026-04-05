@@ -2,11 +2,11 @@
 
 一个用于快速创建 **自定义 UART 协议** 上位机应用的 CodeBuddy Skill。
 
-**模板仓库**: [uart-customized-protocol](https://github.com/aninstone/uart-customized-protocol)
+**模板仓库**: [uart-customized-protocol-skill](https://github.com/aninstone/uart-customized-protocol-skill)
 
 ## 功能特点
 
-- ✅ 基于 `digitaluartcontrol` 模板，已验证可运行
+- ✅ 基于 `digitaluartcontrol-skill` 模板，已验证可运行
 - ✅ **自定义协议**：帧头、设备地址、命令码、校验方式全部可配置
 - ✅ **多种校验算法**：XOR(异或)、Sum(求和)、CRC8、None(无)
 - ✅ **三页面 UI**：手动控制、电源参数、运行监控
@@ -114,14 +114,14 @@ digitaluartcontrol/
 ### 方式一：在 CodeBuddy 中直接使用
 
 ```
-用 https://github.com/aninstone/uart-customized-protocol 作为模板，
+用 https://github.com/aninstone/uart-customized-protocol-skill 作为模板，
 在 D:/WorkPRJ/QT PRJ 创建一个叫 my_uart 的上位机工程。
 ```
 
 ### 方式二：克隆到本地
 
 ```bash
-git clone https://github.com/aninstone/uart-customized-protocol.git
+git clone https://github.com/aninstone/uart-customized-protocol-skill.git
 cd uart-customized-protocol
 mv assets/* ./
 rm -rf assets/
@@ -258,7 +258,7 @@ MIT License - 可以自由使用、修改和商用。
 
 ### 使用提示词
 
-用 https://github.com/aninstone/uart-customized-protocol 作为模板，
+用 https://github.com/aninstone/uart-customized-protocol-skill 作为模板，
 在 [D:\WorkPRJ\QT PRJ] 创建一个 UART 上位机工程。
 
 ### 操作步骤
