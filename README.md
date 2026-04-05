@@ -97,6 +97,46 @@ aqt install-qt windows desktop 6.5.3 win64_msvc2019_64 -O Qt6
 
 ---
 
+## ⚠️ UI文件生成注意事项（重要）
+
+如果需要修改或扩展 `.ui` 文件，必须遵守以下规则：
+
+### XML标签闭合规则
+
+```xml
+<!-- ✅ 正确写法 -->
+<item>
+  <widget class="QLabel" name="labelName">
+    <property name="text">
+      <string>文字内容</string>
+    </property>
+  </widget>
+</item>
+
+<!-- ❌ 错误写法：缺少 </widget> -->
+<item>
+  <widget class="QLabel" name="labelName">
+    <property name="text">
+      <string>文字内容</string>
+    </property>
+  <item>  <!-- 错误：应该是</widget> -->
+```
+
+### 关键点
+
+1. **每个 `<widget>` 必须有对应的 `</widget>` 闭合**
+2. **`<property>` 标签必须完全包含在 `<widget>` 内部**
+3. **生成UI后必须验证**
+
+### 验证方法
+
+```bash
+uic mainwindow.ui -o ui_mainwindow.h
+```
+如果没有报错，说明UI文件格式正确。
+
+---
+
 ## 界面预览
 
 ```
