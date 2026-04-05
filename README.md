@@ -259,7 +259,7 @@ MIT License - 可以自由使用、修改和商用。
 ### 使用提示词
 
 用 https://github.com/aninstone/uart-customized-protocol 作为模板，
-在 [目标路径] 创建一个 UART 上位机工程。
+在 [D:\WorkPRJ\QT PRJ] 创建一个 UART 上位机工程。
 
 ### 操作步骤
 
