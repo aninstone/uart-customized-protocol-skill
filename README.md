@@ -2,7 +2,7 @@
 
 一个用于快速创建 **自定义 UART 协议** 上位机应用的 CodeBuddy Skill。
 
-**参考项目**: [digitaluartcontrol](https://github.com/aninstone/digitaluartcontrol)
+**模板仓库**: [uart-customized-protocol](https://github.com/aninstone/uart-customized-protocol)
 
 ## 功能特点
 
@@ -114,14 +114,18 @@ digitaluartcontrol/
 ### 方式一：在 CodeBuddy 中直接使用
 
 ```
-用 https://github.com/aninstone/digitaluartcontrol 作为模板，
+用 https://github.com/aninstone/uart-customized-protocol 作为模板，
 在 D:/WorkPRJ/QT PRJ 创建一个叫 my_uart 的上位机工程。
 ```
 
 ### 方式二：克隆到本地
 
 ```bash
-git clone https://github.com/aninstone/digitaluartcontrol.git
+git clone https://github.com/aninstone/uart-customized-protocol.git
+cd uart-customized-protocol
+mv assets/* ./
+rm -rf assets/
+mv digitaluartcontrol.pro my_project.pro
 ```
 
 复制文件到你的 Qt 项目即可使用。
@@ -250,13 +254,55 @@ uic mainwindow.ui -o ui_mainwindow.h
 
 MIT License - 可以自由使用、修改和商用。
 
-## 作者
-提示词：
-用 https://github.com/aninstone/digitaluartcontrol 作为模板，
+## 提示词
+
+### 使用提示词
+
+用 https://github.com/aninstone/uart-customized-protocol 作为模板，
 在 [目标路径] 创建一个 UART 上位机工程。
 
-要求：
-1. 基于 digitaluartcontrol 项目结构
+### 操作步骤
+
+1. **克隆仓库**
+   ```
+   git clone https://github.com/aninstone/uart-customized-protocol.git [目标路径]
+   ```
+
+2. **复制模板文件**
+   ```
+   cd [目标路径]
+   mv assets/* ./
+   rm -rf assets/
+   ```
+
+3. **重命名项目文件**
+   ```
+   # 删除 modbus 相关文件（如果存在）
+   rm -f modbusrtumaster.h modbusrtumaster.cpp
+
+   # 重命名 pro 文件
+   mv digitaluartcontrol.pro [工程名].pro
+   ```
+
+4. **修改 .pro 文件**
+   - 删除 modbusrtumaster 相关行
+   - 添加 `TARGET = [工程名]`
+
+5. **修改 mainwindow.ui 标题**
+   ```
+   <string>Digital UART Control</string>
+   替换为
+   <string>[工程名] 上位机</string>
+   ```
+
+6. **验证 UI 文件**
+   ```
+   uic mainwindow.ui -o ui_mainwindow.h
+   ```
+
+### 功能要求
+
+1. 基于 digitaluartcontrol 项目结构（已包含在 assets 中）
 2. 协议参数可在界面配置（帧头、设备地址、读/写/状态命令码、校验方式）
 3. 深色主题 UI（#2b2b2b 背景，#00ff00 日志，#4a9eff 强调色）
 4. 三个页面：手动控制、电源参数、运行监控
@@ -265,5 +311,9 @@ MIT License - 可以自由使用、修改和商用。
 7. Qt 5/6 兼容
 8. UI 标签正确闭合
 9. 生成后运行 uic mainwindow.ui 验证
+
+---
+
+## 作者
 
 GitHub: [@aninstone](https://github.com/aninstone)
